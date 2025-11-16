@@ -1,0 +1,254 @@
+/* Reset e base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f5f6fa;
+  color: #2d2e32;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container central */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+/* Boxes (cards) */
+.box {
+  background: #ffffff;
+  padding: 26px;
+  margin: 20px 0;
+  border-radius: 14px;
+  border: 1px solid #e5e6f0;
+  box-shadow:
+    0 2px 6px rgba(90,85,120,0.05),
+    0 10px 22px rgba(40,40,60,0.06);
+}
+
+/* Titles */
+h1 { font-size: 32px; font-weight: 800; margin: 0 0 6px 0; color: #5c4ea3; line-height: 1.05; }
+h2 { font-size: 24px; font-weight: 700; margin: 0 0 12px 0; color: #544f76; }
+h3 { font-size: 19px; font-weight: 600; margin: 18px 0 8px 0; color: #5b5f78; }
+h4 { font-size: 17px; font-weight: 600; margin: 14px 0 6px 0; color: #6d7087; }
+
+/* Title load animation */
+@keyframes titleFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h1 { animation: titleFadeUp .7s ease .08s both; }
+h2 { animation: titleFadeUp .7s ease .12s both; }
+h3 { animation: titleFadeUp .7s ease .16s both; }
+h4 { animation: titleFadeUp .7s ease .20s both; }
+
+/* Paragraphs */
+p {
+  margin: 12px 0;
+  color: #333;
+  transition: transform .25s ease, color .25s ease, background-color .25s ease;
+  word-wrap: break-word;
+}
+p:hover {
+  transform: translateX(4px);
+  color: #504a8c;
+  background-color: rgba(92,78,163,0.06);
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+/* Lists */
+ul { margin: 10px 0 10px 28px; padding: 0; }
+li { margin-bottom: 6px; }
+
+/* Packages card */
+.pacote {
+  background: linear-gradient(135deg, #e6f3ed, #d9ece4);
+  padding: 18px;
+  border-radius: 12px;
+  margin: 16px 0;
+  border: 1px solid #bfdacc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.pacote:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Observations */
+.obs {
+  font-style: italic;
+  color: #4f4f5c;
+  background: #f3f4fa;
+  padding: 12px;
+  border-left: 4px solid #8ea4e4;
+  border-radius: 6px;
+}
+
+/* Title hover glow */
+h1, h2, h3, h4 {
+  transition: color .25s ease, text-shadow .25s ease;
+}
+h1:hover, h2:hover, h3:hover, h4:hover {
+  color: #6b61c8;
+  text-shadow: 0 0 6px rgba(108,99,225,0.28);
+}
+
+/* WhatsApp floating button */
+.whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  background: #6b61c8;
+  color: #fff;
+  font-size: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(108,99,225,0.18);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.whatsapp:hover {
+  transform: scale(1.08);
+  background: #7d72e0;
+  box-shadow: 0 10px 28px rgba(108,99,225,0.26);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .container { padding: 18px; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 17px; }
+  h4 { font-size: 15px; }
+
+  .box {
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 12px;
+  }
+
+  body, .container, .box, .pacote, .dados-cliente {
+    width: 100%;
+  }
+
+  p:hover {
+    transform: none;
+    background-color: transparent;
+    padding-left: 0;
+  }
+
+  body { line-height: 1.7; }
+
+  .whatsapp {
+    width: 62px;
+    height: 62px;
+    right: 14px;
+    bottom: 14px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container { padding: 14px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  .box { padding: 14px; margin: 10px 0; border-radius: 10px; }
+  .pacote { padding: 14px; }
+  ul { margin-left: 20px; }
+}
+
+/* Print-friendly */
+@media print {
+  body { background: #fff; color: #000; }
+  .container { max-width: 100%; padding: 10px; }
+  .box { box-shadow: none; border: none; border-radius: 0; padding: 12px; margin: 6px 0; }
+  .whatsapp { display: none; }
+  a[href]:after { content: " (" attr(href) ")"; font-size: 10px; color: #000; }
+}
+
+/* ============================================================
+   MÁSCARA APPLE STYLE
+   ============================================================ */
+.mask-parent {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.mask-reveal {
+  display: inline-block;
+}
+
+/* Suporte ao efeito Blur */
+.fade-blur {
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* Zoom reveal — nada além disso é necessário */
+.zoom-reveal { 
+  transform: scale(1);
+  opacity: 1;
+}
+
+.title-underline {
+  height: 3px;
+  background: #6b61c8;   /* cor premium psicológica */
+  margin-top: 4px;
+  border-radius: 2px;
+  width: 50px;          /* largura final */
+}
+
+/* Underline Ultra Premium */
+.title-underline-ultra {
+  height: 4px;
+  background: linear-gradient(90deg,
+    rgba(107, 97, 200, 0.00) 0%,
+    rgba(107, 97, 200, 0.55) 50%,
+    rgba(107, 97, 200, 0.90) 100%
+  );
+  margin-top: 6px;
+  border-radius: 4px;
+  box-shadow: 
+     0 0 6px rgba(107, 97, 200, 0.25),
+     0 0 14px rgba(107, 97, 200, 0.15);
+}
+
+
+.pacote {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pacote:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 14px 30px rgba(107, 97, 200, 0.25);
+}
+
+
+
+/* Máscara cinematográfica para os pacotes */
+.pacote {
+  position: relative;
+  overflow: hidden; /* ESSENCIAL para a máscara funcionar */
+}
+
+.pacote-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255,255,255,0.65); /* cortina suave */
+  z-index: 3;
+  pointer-events: none;
+}
+
